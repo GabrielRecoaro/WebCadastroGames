@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebCadastroGames.Models.Jogo>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<br /><p>@Html.ActionLink("Novo jogo", "Jogo")</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.JogoCod)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoNome)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoVers)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoGender)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoFaixa)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoPlat)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoDtLanc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.JogoSinopse)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoCod)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoNome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoVers)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoGender)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoFaixa)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoPlat)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoDtLanc)
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JogoSinopse)
+            </td>
+
+            <td>
+                @Html.ActionLink("Alterar", "AltJogo", null, new { cdJogo = item.JogoCod }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelJogo", null, new { cdJogo = item.JogoCod }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+
+        </tr>
+
+    }
+
+</table>

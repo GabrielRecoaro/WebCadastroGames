@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebCadastroGames.Models.Cliente>
+@{
+    ViewBag.Title = "ListarCliente";
+}
+
+<br /><p>@Html.ActionLink("Novo cliente", "Cliente")</p>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliNome)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliCPF)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliDtNasc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliEmail)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliTel)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.CliEnd)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CliNome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CliCPF)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CliDtNasc)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CliEmail)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CliTel)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CliEnd)
+            </td>
+
+            <td>
+                @Html.ActionLink("Alterar", "AltCliente", null, new { cdCliente = item.CliCPF }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelCliente", null, new { cdCliente = item.CliCPF }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+
